@@ -15,14 +15,12 @@ class DataPembelian extends Model
         'id',
         'user_id',
         'sparepart_id',
-        'jumlah',
         'hargaSparepart',
         'tanggal',
         'jumlah',
         'total_harga'
 
     ];
-
 
     public function sparepart()
     {
@@ -34,7 +32,6 @@ class DataPembelian extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
-    
 
     public function getRouteKeyName()
     {

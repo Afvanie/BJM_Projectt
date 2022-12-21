@@ -13,6 +13,7 @@ use App\Http\Controllers\ServisPanggilanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardUserController;
+use App\Models\RincianBiaya;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\IndikatorbobotController;
 use App\Http\Controllers\PenyakitController;
@@ -54,10 +55,12 @@ Route::post('/diagnosauser/hasil', [DiagnosaUserController::class, 'hasil'])->na
 Route::middleware(['isAdmin', 'auth'])->group(function(){
     Route::resource('/datacustomer', DataCustomerController::class);
     Route::resource('/datapegawai', UserController::class);
+    Route::get('rincian-filter',[RincianBiayaController::class,'filter']);
     Route::resource('/dashboard',DashboardController::class);
     Route::resource('/dataservice', DataServiceController::class);
     Route::resource('/service', DataServiceController::class);
     Route::resource('/pembelian', DataPembelianController::class);
+    Route::get('pembelian-filter',[DataPembelianController::class,'filter']);
     Route::resource('/datasparepart', DataSparepartController::class);
     Route::resource('/datagejala',GejalaController::class);
     Route::resource('/datapenyakit',PenyakitController::class);
