@@ -27,7 +27,6 @@
         <!-- Begin page -->
         <div class="wrapper">
             <!-- ========== Left Sidebar Start ========== -->
-            @include('layoutuser.leftbaruser')
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
