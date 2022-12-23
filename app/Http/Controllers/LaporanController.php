@@ -22,10 +22,17 @@ class LaporanController extends Controller
 
     public function cetak(Request $request)
     {
-        $pembelian = DataPembelian::all();
+        if($request->tipe == 'pembelian'){
+            $pembelian = DataPembelian::all();
  
-        $pdf = PDF::loadview('laporan.pembelian',['pembelian'=>$pembelian]);
-        return $pdf->stream('laporan-pembelian.pdf');
-        
+            $pdf = PDF::loadview('laporan.pembelian',['pembelian'=>$pembelian]);
+            return $pdf->stream('laporan-pembelian.pdf');
+        }
+        else {
+            $servispanggilan = ServisPanggilan::all();
+ 
+            $pdf = PDF::loadview('laporan.servispanggilan',['servispanggilan'=>$servispanggilan]);
+            return $pdf->stream('laporan-servispanggilan.pdf');
+        }
     }
 }
